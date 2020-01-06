@@ -413,7 +413,7 @@ ssh-keygen -t rsa -C “邮箱”）
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    55
+                    107
                 </div>
                 
 
@@ -442,7 +442,25 @@ ssh-keygen -t rsa -C “邮箱”）
 <p>生成电脑的.ssh文件</p>
 <p>默认在C:\Users\Administrator.ssh</p>
 <p>之前在阿里云上需要SSH公钥，然后用到的</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -973,6 +991,8 @@ rz 上传或者直接
                         
                             Gnomeshgh文案✨*Gnomeshgh✨妙语连珠是猎物，支支吾吾是喜欢。* 我的第一个人网站：Gnomeshgh文案✨
 
+        document.querySelectorAll('.github-emoji')
+     
                         
                     </div>
                     <div class="publish-info">
@@ -1150,7 +1170,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">954</span>&nbsp;字
+                class="white-color">1.1k</span>&nbsp;字
             
             
             

@@ -412,14 +412,14 @@ rz 上传或者直接
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    870
+                    922
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -437,40 +437,40 @@ rz 上传或者直接
             <div id="articleContent">
                 <h2 id="redis4安装"><a href="#redis4安装" class="headerlink" title="#redis4安装"></a>#redis4安装</h2><h4 id="1-第一步官网下载"><a href="#1-第一步官网下载" class="headerlink" title="1.第一步官网下载"></a>1.第一步官网下载</h4><p><a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a></p>
 <p>rz 上传或者直接</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget   http://download.redis.io/releases/redis<span class="literal">-4</span>.<span class="number">0.2</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget   http://download.redis.io/releases/redis<span class="literal">-4</span>.<span class="number">0.2</span>.tar.gz</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="2、将其下载到我的-server-tools-目录下"><a href="#2、将其下载到我的-server-tools-目录下" class="headerlink" title="2、将其下载到我的/server/tools/目录下"></a>2、将其下载到我的/server/tools/目录下</h4><h4 id="3、解压并进入其目录"><a href="#3、解压并进入其目录" class="headerlink" title="3、解压并进入其目录"></a>3、解压并进入其目录</h4><p>　　</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xf redis<span class="literal">-4</span>.<span class="number">0.2</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xf redis<span class="literal">-4</span>.<span class="number">0.2</span>.tar.gz</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="4、编译源程序"><a href="#4、编译源程序" class="headerlink" title="4、编译源程序"></a>4、编译源程序</h4><p>　　</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make </span><br><span class="line">cd src</span><br><span class="line">make install PREFIX=/usr/local/redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make </span><br><span class="line">cd src</span><br><span class="line">make install PREFIX=/usr/local/redis</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="5、将配置文件移动到redis目录"><a href="#5、将配置文件移动到redis目录" class="headerlink" title="5、将配置文件移动到redis目录"></a>5、将配置文件移动到redis目录</h4><p>　　</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /server/tools/redis<span class="literal">-4</span>.<span class="number">0.2</span>/redis.conf  /usr/local/redis/etc/</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /server/tools/redis<span class="literal">-4</span>.<span class="number">0.2</span>/redis.conf  /usr/local/redis/etc/</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="6、启动redis服务"><a href="#6、启动redis服务" class="headerlink" title="6、启动redis服务"></a>6、启动redis服务</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-server</span>  /usr/local/redis/etc/redis.conf</span><br></pre></td></tr></table></figure>
+<h4 id="6、启动redis服务"><a href="#6、启动redis服务" class="headerlink" title="6、启动redis服务"></a>6、启动redis服务</h4><figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-server</span>  /usr/local/redis/etc/redis.conf</span><br></pre></td></tr></tbody></table></figure>
 
 
 
-<h4 id="7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行"><a href="#7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行" class="headerlink" title="7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行　"></a>7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行　</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/redis/etc/redis.conf</span><br></pre></td></tr></table></figure>
+<h4 id="7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行"><a href="#7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行" class="headerlink" title="7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行　"></a>7、默认情况，Redis不是在后台运行，我们需要把redis放在后台运行　</h4><figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/redis/etc/redis.conf</span><br></pre></td></tr></tbody></table></figure>
 <p>将daemonize的值改为yes<br> 将bind 本机ip或127.0.0.1</p>
 <h4 id="8、客户端连接"><a href="#8、客户端连接" class="headerlink" title="8、客户端连接"></a>8、客户端连接</h4><p>名字</p>
 <p>link IP地址</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-cli</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>[root@m01 bin]# /usr/local/redis/bin/redis-server  /usr/local/redis/etc/redis.conf 9014:C 07 Nov 22:45:49.763 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo 9014:C 07 Nov 22:45:49.763 # Redis version=4.0.2, bits=64, commit=00000000, modified=0, pid=9014, just started 9014:C 07 Nov 22:45:49.764 # Configuration loaded [root@m01 bin]# /usr/local/redis/bin/redis-cli 127.0.0.1:6379&gt; set test “laotansauncai” OK 127.0.0.1:6379&gt; get test “laotansauncai” 127.0.0.1:6379&gt;</p>
-<h4 id="9、停止redis实例"><a href="#9、停止redis实例" class="headerlink" title="9、停止redis实例"></a>9、停止redis实例</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-cli</span> shutdown</span><br></pre></td></tr></table></figure>
+<h4 id="9、停止redis实例"><a href="#9、停止redis实例" class="headerlink" title="9、停止redis实例"></a>9、停止redis实例</h4><figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-cli</span> shutdown</span><br></pre></td></tr></tbody></table></figure>
 
 
 <p>或者</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill redis<span class="literal">-server</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill redis<span class="literal">-server</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
 <h4 id="10、让redis开机自启"><a href="#10、让redis开机自启" class="headerlink" title="10、让redis开机自启"></a>10、让redis开机自启</h4><p>　</p>
 <p>　vim /etc/rc.local</p>
 <p>　　加入</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-server</span> /usr/local/redis/etc/redis<span class="literal">-conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/redis/bin/redis<span class="literal">-server</span> /usr/local/redis/etc/redis<span class="literal">-conf</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 <h4 id="11、接下来我们看看-usr-local-redis-bin目录下的几个文件时什么"><a href="#11、接下来我们看看-usr-local-redis-bin目录下的几个文件时什么" class="headerlink" title="11、接下来我们看看/usr/local/redis/bin目录下的几个文件时什么"></a>11、接下来我们看看/usr/local/redis/bin目录下的几个文件时什么</h4><p>　　redis-benchmark：redis性能测试工具</p>
@@ -504,7 +504,25 @@ rz 上传或者直接
 <p>　　vm_page_size：设置虚拟内存页的大小</p>
 <p>　　vm_pages：设置交换文件的总的page数量</p>
 <p>　　vm_max_thrrads：设置vm IO同时使用的线程数量</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1218,7 +1236,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">954</span>&nbsp;字
+                class="white-color">1.1k</span>&nbsp;字
             
             
             
