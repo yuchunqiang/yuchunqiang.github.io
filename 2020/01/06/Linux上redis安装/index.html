@@ -573,8 +573,8 @@ make install PREFIX=<span class="token operator">/</span>usr<span class="token o
     }
 
     #rewardModal {
-        width: 320px;
-        height: 350px;
+        width: 350px;
+        height: 430px;
     }
 
     #rewardModal .reward-title {
@@ -606,7 +606,7 @@ make install PREFIX=<span class="token operator">/</span>usr<span class="token o
 
     #rewardModal .reward-tabs {
         margin: 0 auto;
-        width: 210px;
+        width: 320px;
     }
 
     .reward-tabs .tabs {
@@ -643,10 +643,15 @@ make install PREFIX=<span class="token operator">/</span>usr<span class="token o
         color: #fff !important;
         background-color: #019FE8 !important;
     }
+	
+	 .reward-tabs .aifadian-tab .active {
+        color: #fff !important;
+        background-color: #e91e63 !important;
+    }
 
     .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
+        width: 300px;
+        height: 300px;
     }
 </style>
 
@@ -661,14 +666,18 @@ make install PREFIX=<span class="token operator">/</span>usr<span class="token o
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                        <li class="tab col s4 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s4 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                        <li class="tab col s4 aifadian-tab waves-effect waves-light"><a href="#aifadian">爱发电</a></li>
                     </ul>
                     <div id="alipay">
                         <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
                         <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+					<div id="aifadian">
+                        <img src="" class="reward-img" alt="爱发电打赏二维码">
                     </div>
                 </div>
             </div>
