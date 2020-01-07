@@ -465,19 +465,8 @@ ssh-keygen -t rsa -C “邮箱”）
 
         let carouselIntervalId;
         
-        // Loop to call the next cover article picture.
-        let autoCarousel = function() {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 10000);
-        };
-        autoCarousel();
-        
 
         let restartPlay = function () {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
             
         };
 
