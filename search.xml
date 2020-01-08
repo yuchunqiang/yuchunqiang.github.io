@@ -22,11 +22,11 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> Spring </tag>
             
             <tag> Spring DI </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
@@ -78,11 +78,11 @@
       
         <tags>
             
+            <tag> java </tag>
+            
             <tag> redis </tag>
             
             <tag> 缓存 </tag>
-            
-            <tag> java </tag>
             
         </tags>
       
