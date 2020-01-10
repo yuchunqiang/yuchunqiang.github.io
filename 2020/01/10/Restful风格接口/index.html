@@ -362,16 +362,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
-                            </a>
-                        
                             <a href="/tags/Restful/">
                                 <span class="chip bg-color">Restful</span>
                             </a>
                         
                             <a href="/tags/%E6%8E%A5%E5%8F%A3/">
                                 <span class="chip bg-color">接口</span>
+                            </a>
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
                     </div>
@@ -436,18 +436,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Restful风格接口"><a href="#Restful风格接口" class="headerlink" title="Restful风格接口"></a>Restful风格接口</h1><p><strong>Restful风格的API是一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。<br>在Restful风格中，用户请求的url使用同一个url而用请求方式：get，post，delete，put…等方式对请求的处理方法进行区分，这样可以在前后台分离式的开发中使得前端开发人员不会对请求的资源地址产生混淆和大量的检查方法名的麻烦，形成一个统一的接口。</strong></p>
+                <h1 id="Restful风格接口"><a href="#Restful风格接口" class="headerlink" title="Restful风格接口"></a>Restful风格接口</h1><p><strong>Restful风格的API是一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。</strong><br><strong>在Restful风格中，用户请求的url使用同一个url而用请求方式：get，post，delete，put…等方式对请求的处理方法进行区分，这样可以在前后台分离式的开发中使得前端开发人员不会对请求的资源地址产生混淆和大量的检查方法名的麻烦，形成一个统一的接口。</strong></p>
 <h2 id="规定如下"><a href="#规定如下" class="headerlink" title="规定如下"></a>规定如下</h2><h5 id="GET（SELECT）："><a href="#GET（SELECT）：" class="headerlink" title="GET（SELECT）："></a>GET（SELECT）：</h5><p>从服务器查询，可以在服务器通过请求的参数区分查询的方式。</p>
 <h5 id="POST（CREATE）："><a href="#POST（CREATE）：" class="headerlink" title="POST（CREATE）："></a>POST（CREATE）：</h5><p>在服务器新建一个资源，调用insert操作。</p>
 <h5 id="PUT（UPDATE）："><a href="#PUT（UPDATE）：" class="headerlink" title="PUT（UPDATE）："></a>PUT（UPDATE）：</h5><p>在服务器更新资源，调用update操作。</p>
 <h5 id="PATCH（UPDATE）："><a href="#PATCH（UPDATE）：" class="headerlink" title="PATCH（UPDATE）："></a>PATCH（UPDATE）：</h5><p>在服务器更新资源（客户端提供改变的属性）。(目前jdk7未实现，tomcat7也不行)。</p>
 <h5 id="DELETE（DELETE）："><a href="#DELETE（DELETE）：" class="headerlink" title="DELETE（DELETE）："></a>DELETE（DELETE）：</h5><p>从服务器删除资源，调用delete语句。</p>
-<h4 id="了解这个风格定义以后，我们举个例子"><a href="#了解这个风格定义以后，我们举个例子" class="headerlink" title="了解这个风格定义以后，我们举个例子"></a>了解这个风格定义以后，我们举个例子</h4><p>**<br>如果当前url是 <a href="http://localhost:8080/User" target="_blank" rel="noopener">http://localhost:8080/User</a><br>**</p>
+<h4 id="了解这个风格定义以后，我们举个例子"><a href="#了解这个风格定义以后，我们举个例子" class="headerlink" title="了解这个风格定义以后，我们举个例子"></a>了解这个风格定义以后，我们举个例子</h4><p>*<em>如果当前url是 <a href="http://localhost:8080/User" target="_blank" rel="noopener">http://localhost:8080/User</a> *</em></p>
 <p>那么用户只要请求这样同一个URL就可以实现不同的增删改查操作，例如</p>
-<p><a href="http://localhost:8080/User?_method=get&amp;id=1001" target="_blank" rel="noopener">http://localhost:8080/User?_method=get&amp;id=1001</a>　　这样就可以通过get请求获取到数据库 user 表里面 id=1001 的用户信息</p>
-<p><a href="http://localhost:8080/User?_method=post&amp;id=1001&amp;name=zhangsan" target="_blank" rel="noopener">http://localhost:8080/User?_method=post&amp;id=1001&amp;name=zhangsan</a>　　这样可以向数据库 user 表里面插入一条记录</p>
-<p><a href="http://localhost:8080/User?_method=put&amp;id=1001&amp;name=lisi" target="_blank" rel="noopener">http://localhost:8080/User?_method=put&amp;id=1001&amp;name=lisi</a>　　这样可以将 user表里面 id=1001 的用户名改为lisi</p>
-<p><a href="http://localhost:8080/User?_method=delete&amp;id=1001" target="_blank" rel="noopener">http://localhost:8080/User?_method=delete&amp;id=1001</a>　　这样用于将数据库 user 表里面的id=1001 的信息删除<br><strong>这样定义的规范我们就可以称之为restful风格的API接口，我们可以通过同一个url来实现各种操作。</strong></p>
+<p><a href="http://localhost:8080/User?_method=get&amp;id=1001" target="_blank" rel="noopener">http://localhost:8080/User?_method=get&amp;id=1001</a>　　<strong>这样就可以通过get请求获取到数据库 user 表里面 id=1001 的用户信息</strong></p>
+<p><a href="http://localhost:8080/User?_method=post&amp;id=1001&amp;name=zhangsan" target="_blank" rel="noopener">http://localhost:8080/User?_method=post&amp;id=1001&amp;name=zhangsan</a>　　<strong>这样可以向数据库 user 表里面插入一条记录</strong></p>
+<p><a href="http://localhost:8080/User?_method=put&amp;id=1001&amp;name=lisi" target="_blank" rel="noopener">http://localhost:8080/User?_method=put&amp;id=1001&amp;name=lisi</a>　　<strong>这样可以将 user表里面 id=1001 的用户名改为lisi</strong></p>
+<p><a href="http://localhost:8080/User?_method=delete&amp;id=1001" target="_blank" rel="noopener">http://localhost:8080/User?_method=delete&amp;id=1001</a>　　<strong>这样用于将数据库 user 表里面的id=1001 的信息删除</strong><br><strong>这样定义的规范我们就可以称之为restful风格的API接口，我们可以通过同一个url来实现各种操作。</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -479,16 +479,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
-                                </a>
-                            
                                 <a href="/tags/Restful/">
                                     <span class="chip bg-color">Restful</span>
                                 </a>
                             
                                 <a href="/tags/%E6%8E%A5%E5%8F%A3/">
                                     <span class="chip bg-color">接口</span>
+                                </a>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -972,16 +972,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
                     <a href="/tags/Restful/">
                         <span class="chip bg-color">Restful</span>
                     </a>
                     
                     <a href="/tags/%E6%8E%A5%E5%8F%A3/">
                         <span class="chip bg-color">接口</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
