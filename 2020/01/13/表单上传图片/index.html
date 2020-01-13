@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="springboot+mysql数据源切换, 养九 java Gnomeshgh 文案 计算机">
-    <meta name="description" content="springboot+mysql数据源切换这里我做的是mysql读写分离，我是建立了两个链接，分别用了不同的端口号来分开（当然也可以区分数据库，这个根据自己所需 ）首先是在是在springboot项目中的，application.prope">
+    <meta name="keywords" content="表单上传图片, 养九 java Gnomeshgh 文案 计算机">
+    <meta name="description" content="表单上传图片1.表单1.在form表单中加入属性：enctype=”multipart/form-data”2.在form表单中给一个input框 type类型为file 的输入框还有给name
+&amp;lt;input type=&#34;file&#34; ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>springboot+mysql数据源切换 | 养九的博客</title>
+    <title>表单上传图片 | 养九的博客</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +241,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">springboot+mysql数据源切换</h1>
+                    <h1 class="description center-align post-title">表单上传图片</h1>
                 </div>
             </div>
         </div>
@@ -362,16 +363,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/springboot/">
-                                <span class="chip bg-color">springboot</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/spring/">
-                                <span class="chip bg-color">spring</span>
+                            <a href="/tags/html/">
+                                <span class="chip bg-color">html</span>
                             </a>
                         
-                            <a href="/tags/mysql/">
-                                <span class="chip bg-color">mysql</span>
+                            <a href="/tags/form/">
+                                <span class="chip bg-color">form</span>
                             </a>
                         
                     </div>
@@ -382,12 +383,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/springboot/" class="post-category">
-                                springboot
+                            <a href="/categories/html/" class="post-category">
+                                html
                             </a>
                         
-                            <a href="/categories/springboot/mysql/" class="post-category">
-                                mysql
+                            <a href="/categories/html/java/" class="post-category">
+                                java
                             </a>
                         
                     </div>
@@ -399,28 +400,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-09
+                    2020-01-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-09
+                    2020-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    953
+                    540
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
 
@@ -436,177 +437,168 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="springboot-mysql数据源切换"><a href="#springboot-mysql数据源切换" class="headerlink" title="springboot+mysql数据源切换"></a>springboot+mysql数据源切换</h2><h5 id="这里我做的是mysql读写分离，我是建立了两个链接，分别用了不同的端口号来分开（当然也可以区分数据库，这个根据自己所需-）"><a href="#这里我做的是mysql读写分离，我是建立了两个链接，分别用了不同的端口号来分开（当然也可以区分数据库，这个根据自己所需-）" class="headerlink" title="这里我做的是mysql读写分离，我是建立了两个链接，分别用了不同的端口号来分开（当然也可以区分数据库，这个根据自己所需 ）"></a>这里我做的是mysql读写分离，我是建立了两个链接，分别用了不同的端口号来分开（当然也可以区分数据库，这个根据自己所需 ）</h5><h4 id="首先是在是在springboot项目中的，application-properties文件中连接的"><a href="#首先是在是在springboot项目中的，application-properties文件中连接的" class="headerlink" title="首先是在是在springboot项目中的，application.properties文件中连接的"></a>首先是在是在springboot项目中的，application.properties文件中连接的</h4><pre class="line-numbers language-java"><code class="language-java">spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>select<span class="token punctuation">.</span>jdbc<span class="token operator">-</span>url<span class="token operator">=</span>jdbc<span class="token operator">:</span>mysql<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3308</span><span class="token operator">/</span>product
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>select<span class="token punctuation">.</span>username<span class="token operator">=</span>root
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>select<span class="token punctuation">.</span>password<span class="token operator">=</span>
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>select<span class="token punctuation">.</span>driver<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">-</span>name<span class="token operator">=</span>com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>Driver
+                <h1 id="表单上传图片"><a href="#表单上传图片" class="headerlink" title="表单上传图片"></a>表单上传图片</h1><h2 id="1-表单"><a href="#1-表单" class="headerlink" title="1.表单"></a>1.表单</h2><p>1.在form表单中加入属性：<strong>enctype=”multipart/form-data”</strong><br>2.在form表单中给一个input框 type类型为file 的输入框还有给name</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>photo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>在struts.xml中配置<br><strong>设置struts2上传的文件大小，默认情况下的大小是2M ，默认单位是B,目前允许上传的最大为100M</strong></p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constant</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>struts.multipart.maxSize<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>104857600<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3-controller-action（控制层）"><a href="#3-controller-action（控制层）" class="headerlink" title="3.controller/action（控制层）"></a>3.controller/action（控制层）</h2><h4 id="1-接收图片的参数定义规则："><a href="#1-接收图片的参数定义规则：" class="headerlink" title="1.接收图片的参数定义规则："></a>1.接收图片的参数定义规则：</h4><p>文件名称的接收:<strong>必须定义的是全局变量，表单中的file框中的name值加上FileName;</strong></p>
+<h4 id="2-接收文件内容的参数"><a href="#2-接收文件内容的参数" class="headerlink" title="2.接收文件内容的参数"></a>2.接收文件内容的参数</h4><p>private File photo；<br><strong>属性名和input中的name值一样。</strong></p>
+<h2 id="4-文件的上传操作"><a href="#4-文件的上传操作" class="headerlink" title="4.文件的上传操作"></a>4.文件的上传操作</h2><h4 id="1-文件重命名"><a href="#1-文件重命名" class="headerlink" title="1.文件重命名"></a>1.文件重命名</h4><h4 id="2-文件的上传"><a href="#2-文件的上传" class="headerlink" title="2.文件的上传"></a>2.文件的上传</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>fh<span class="token punctuation">.</span>action<span class="token punctuation">;</span>
 
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>File<span class="token punctuation">;</span>
 
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>update<span class="token punctuation">.</span>jdbc<span class="token operator">-</span>url<span class="token operator">=</span>jdbc<span class="token operator">:</span>mysql<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3307</span><span class="token operator">/</span>product
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>update<span class="token punctuation">.</span>username<span class="token operator">=</span>root
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>update<span class="token punctuation">.</span>password<span class="token operator">=</span>
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>update<span class="token punctuation">.</span>driver<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">-</span>name<span class="token operator">=</span>com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>Driver
-#加载mapper文件
-mybatis<span class="token punctuation">.</span>mapper<span class="token operator">-</span>locations<span class="token operator">=</span>classpath<span class="token operator">*</span><span class="token operator">:</span>mapper<span class="token operator">/</span><span class="token operator">*</span><span class="token punctuation">.</span>xml
-#修改访问端口
-server<span class="token punctuation">.</span>port<span class="token operator">=</span><span class="token number">8099</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二-接下来我们添加工具包"><a href="#二-接下来我们添加工具包" class="headerlink" title="二.接下来我们添加工具包"></a>二.接下来我们添加工具包</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>fh<span class="token punctuation">.</span>datademo<span class="token punctuation">.</span>datasoucedynamic<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileInputStream<span class="token punctuation">;</span>
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span>ConfigurationProperties<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>DataSourceBuilder<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Bean<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileOutputStream<span class="token punctuation">;</span>
 
-<span class="token keyword">import</span> javax<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>DataSource<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>UUID<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>struts2<span class="token punctuation">.</span>ServletActionContext<span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">/**
- * @author yuchunqiang
- * @Title: DataSourceConfig
- * @Package com.fh.datademo.datasoucedynamic
- * @Description: ${todo}
- * @date 2018/10/24  16:01
- */</span>
-<span class="token annotation punctuation">@Configuration</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DataSourceConfig</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"selectDataSource"</span><span class="token punctuation">)</span>
-    <span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"spring.datasource.select"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> DataSource <span class="token function">dataSource1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> DataSourceBuilder<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+* @ClassName: FileUpload
+* @author yuchunqiang
+**/</span>
 
-    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"updateDataSource"</span><span class="token punctuation">)</span>
-    <span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"spring.datasource.update"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> DataSource <span class="token function">dataSource2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> DataSourceBuilder<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FileUpload</span> <span class="token punctuation">{</span>
 
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="这个主要用来找到两个mysql的连接，并提供给另外一个工具包决定我们的方法到底走application-properties中哪一个连接"><a href="#这个主要用来找到两个mysql的连接，并提供给另外一个工具包决定我们的方法到底走application-properties中哪一个连接" class="headerlink" title="这个主要用来找到两个mysql的连接，并提供给另外一个工具包决定我们的方法到底走application.properties中哪一个连接"></a>这个主要用来找到两个mysql的连接，并提供给另外一个工具包决定我们的方法到底走application.properties中哪一个连接</h5><h5 id="一"><a href="#一" class="headerlink" title="一"></a>一</h5><pre class="line-numbers language-java"><code class="language-java"> <span class="token keyword">package</span> com<span class="token punctuation">.</span>fh<span class="token punctuation">.</span>datademo<span class="token punctuation">.</span>datasoucedynamic<span class="token punctuation">;</span>
- <span class="token number">2</span> 
- <span class="token number">3</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Lazy<span class="token punctuation">;</span>
- <span class="token number">4</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Component<span class="token punctuation">;</span>
- <span class="token number">5</span> 
- <span class="token number">6</span> <span class="token comment" spellcheck="true">/**
- 7  * @author yuchunqiang
- 8  * @Title: DataSourceContextHolder
- 9  * @Package com.fh.datademo.datasoucedynamic
-10  * @Description: ${todo}
-11  * @date 2018/10/24  16:00
-12  */</span>
-<span class="token number">13</span> <span class="token annotation punctuation">@Component</span>
-<span class="token number">14</span> <span class="token annotation punctuation">@Lazy</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token number">15</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DataSourceContextHolder</span> <span class="token punctuation">{</span>
-<span class="token number">16</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> ThreadLocal<span class="token operator">&lt;</span>String<span class="token operator">></span> contextHolder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadLocal</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">17</span> 
-<span class="token number">18</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setDbType</span><span class="token punctuation">(</span>String dbType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">19</span>         contextHolder<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>dbType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">20</span>     <span class="token punctuation">}</span>
-<span class="token number">21</span> 
-<span class="token number">22</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">getDbType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">23</span>         <span class="token keyword">return</span> contextHolder<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">24</span>     <span class="token punctuation">}</span>
-<span class="token number">25</span> 
-<span class="token number">26</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">clearDbType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">27</span>         contextHolder<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">28</span>     <span class="token punctuation">}</span>
-<span class="token number">29</span> <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="二"><a href="#二" class="headerlink" title="二"></a>二</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>fh<span class="token punctuation">.</span>datademo<span class="token punctuation">.</span>datasoucedynamic<span class="token punctuation">;</span>
- <span class="token number">2</span> 
- <span class="token number">3</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Autowired<span class="token punctuation">;</span>
- <span class="token number">4</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Qualifier<span class="token punctuation">;</span>
- <span class="token number">5</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Primary<span class="token punctuation">;</span>
- <span class="token number">6</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>lookup<span class="token punctuation">.</span>AbstractRoutingDataSource<span class="token punctuation">;</span>
- <span class="token number">7</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Component<span class="token punctuation">;</span>
- <span class="token number">8</span> 
- <span class="token number">9</span> 
-<span class="token number">10</span> <span class="token keyword">import</span> javax<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>DataSource<span class="token punctuation">;</span>
-<span class="token number">11</span> <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>HashMap<span class="token punctuation">;</span>
-<span class="token number">12</span> <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Map<span class="token punctuation">;</span>
-<span class="token number">13</span> 
-<span class="token number">14</span> <span class="token comment" spellcheck="true">/**
-15  * @author yuchunqiang
-16  * @Title: DynamicDataSource
-17  * @Package com.fh.datademo.datasoucedynamic
-18  * @Description: ${todo}
-19  * @date 2018/10/24  16:06
-20  */</span>
-<span class="token number">21</span> <span class="token annotation punctuation">@Component</span>
-<span class="token number">22</span> <span class="token annotation punctuation">@Primary</span>
-<span class="token number">23</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DynamicDataSource</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractRoutingDataSource</span> <span class="token punctuation">{</span>
-<span class="token number">24</span> 
-<span class="token number">25</span>     <span class="token annotation punctuation">@Autowired</span>
-<span class="token number">26</span>     <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"selectDataSource"</span><span class="token punctuation">)</span>
-<span class="token number">27</span>     <span class="token keyword">private</span> DataSource selectDataSource<span class="token punctuation">;</span>
-<span class="token number">28</span> 
-<span class="token number">29</span>     <span class="token annotation punctuation">@Autowired</span>
-<span class="token number">30</span>     <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"updateDataSource"</span><span class="token punctuation">)</span>
-<span class="token number">31</span>     <span class="token keyword">private</span> DataSource updateDataSource<span class="token punctuation">;</span>
-<span class="token number">32</span> 
-<span class="token number">33</span>     <span class="token comment" spellcheck="true">/**
-34      * 这个是主要的方法，返回的是生效的数据源名称
-35      */</span>
-<span class="token number">36</span>     <span class="token annotation punctuation">@Override</span>
-<span class="token number">37</span>     <span class="token keyword">protected</span> Object <span class="token function">determineCurrentLookupKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">38</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"DataSourceContextHolder：：："</span><span class="token operator">+</span>DataSourceContextHolder<span class="token punctuation">.</span><span class="token function">getDbType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">39</span>         <span class="token keyword">return</span> DataSourceContextHolder<span class="token punctuation">.</span><span class="token function">getDbType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">40</span>     <span class="token punctuation">}</span>
-<span class="token number">41</span> 
-<span class="token number">42</span>     <span class="token comment" spellcheck="true">/**
-43      * 自己配的时候老是报什么没有指定target这里设置一下，默认数据源是updateDataSource
-44      */</span>
-<span class="token number">45</span>     <span class="token annotation punctuation">@Override</span>
-<span class="token number">46</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterPropertiesSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">47</span>         Map<span class="token operator">&lt;</span>Object<span class="token punctuation">,</span>Object<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">48</span>         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"selectDataSource"</span><span class="token punctuation">,</span>selectDataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">49</span>         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"updateDataSource"</span><span class="token punctuation">,</span>updateDataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">50</span>         <span class="token function">setTargetDataSources</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">51</span>         <span class="token function">setDefaultTargetDataSource</span><span class="token punctuation">(</span>updateDataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">52</span>         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">afterPropertiesSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">53</span>     <span class="token punctuation">}</span>
-<span class="token number">54</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="三"><a href="#三" class="headerlink" title="三"></a>三</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>fh<span class="token punctuation">.</span>datademo<span class="token punctuation">.</span>datasoucedynamic<span class="token punctuation">;</span>
- <span class="token number">2</span> 
- <span class="token number">3</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>aspectj<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>JoinPoint<span class="token punctuation">;</span>
- <span class="token number">4</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>aspectj<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Aspect<span class="token punctuation">;</span>
- <span class="token number">5</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>aspectj<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Before<span class="token punctuation">;</span>
- <span class="token number">6</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Lazy<span class="token punctuation">;</span>
- <span class="token number">7</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>core<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Order<span class="token punctuation">;</span>
- <span class="token number">8</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Component<span class="token punctuation">;</span>
- <span class="token number">9</span> 
-<span class="token number">10</span> <span class="token comment" spellcheck="true">/**
-11  * @author yuchunqiang
-12  * @Title: SwitchDataSourceAOP
-13  * @Package com.fh.datademo.datasoucedynamic
-14  * @Description: ${todo}
-15  * @date 2018/10/24  15:54
-16  */</span>
-<span class="token number">17</span> <span class="token annotation punctuation">@Aspect</span>
-<span class="token number">18</span> <span class="token annotation punctuation">@Component</span>
-<span class="token number">19</span> <span class="token annotation punctuation">@Lazy</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token number">20</span> <span class="token annotation punctuation">@Order</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//Order设定AOP执行顺序 使之在数据库事务上先执行</span>
-<span class="token number">21</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SwitchDataSourceAOP</span> <span class="token punctuation">{</span>
-<span class="token number">22</span> 
-<span class="token number">23</span>     <span class="token comment" spellcheck="true">//这里切到你的方法目录</span>
-<span class="token number">24</span>     <span class="token annotation punctuation">@Before</span><span class="token punctuation">(</span><span class="token string">"execution(* com.fh.datademo.service.*.*.*(..))"</span><span class="token punctuation">)</span>
-<span class="token number">25</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">process</span><span class="token punctuation">(</span>JoinPoint joinPoint<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">26</span>         String methodName<span class="token operator">=</span>joinPoint<span class="token punctuation">.</span><span class="token function">getSignature</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">27</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"get"</span><span class="token punctuation">)</span>
-<span class="token number">28</span>                 <span class="token operator">||</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"count"</span><span class="token punctuation">)</span>
-<span class="token number">29</span>                 <span class="token operator">||</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"find"</span><span class="token punctuation">)</span>
-<span class="token number">30</span>                 <span class="token operator">||</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"list"</span><span class="token punctuation">)</span>
-<span class="token number">31</span>                 <span class="token operator">||</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"select"</span><span class="token punctuation">)</span>
-<span class="token number">32</span>                 <span class="token operator">||</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"check"</span><span class="token punctuation">)</span>
-<span class="token number">33</span>                 <span class="token operator">||</span>methodName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"query"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token number">34</span>             DataSourceContextHolder<span class="token punctuation">.</span><span class="token function">setDbType</span><span class="token punctuation">(</span><span class="token string">"selectDataSource"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">35</span>         <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
-<span class="token number">36</span>             <span class="token comment" spellcheck="true">//切换dataSource</span>
-<span class="token number">37</span>             DataSourceContextHolder<span class="token punctuation">.</span><span class="token function">setDbType</span><span class="token punctuation">(</span><span class="token string">"updateDataSource"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">38</span>         <span class="token punctuation">}</span>
-<span class="token number">39</span>     <span class="token punctuation">}</span>
-<span class="token number">40</span> 
-<span class="token number">41</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>用来在走方法之前，来决定走哪个数据源，在@Before的设置中（@Before(“execution(* com.fh.datademo.service.<em>.</em>.*(..))”)）决定具体到哪个包，具体到哪个类，然后获取其方法名来判断，方法名中包含所规定的字符，则走读的数据源，否则走写的数据源。从而来达到读写分离，实现自动切换的功能</strong></p>
+<span class="token keyword">private</span> String photoFileName<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> File photo<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">uploadFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>photoFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 第一大步就是给文件重命名</span>
+
+<span class="token comment" spellcheck="true">// 先获取文件的后缀名</span>
+
+String suffix <span class="token operator">=</span>
+
+photoFileName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>photoFileName<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>suffix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 获取一个32位的UUID</span>
+
+String uuid <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+String newFileName <span class="token operator">=</span> uuid <span class="token operator">+</span> suffix<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 第二大步,就是将文件上传到指定文件夹中。</span>
+
+<span class="token comment" spellcheck="true">// 1.获取项目的发布路径</span>
+
+String realPath <span class="token operator">=</span>
+
+ServletActionContext<span class="token punctuation">.</span><span class="token function">getServletContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRealPath</span><span class="token punctuation">(</span>
+
+<span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>realPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 读取服务器上的文件目录</span>
+
+File filemdk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>realPath <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> <span class="token string">"photo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>filemdk<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+filemdk<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 输入流</span>
+
+FileInputStream fis <span class="token operator">=</span> null<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 输出流FileOutputStream fos = null;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true">// 获取输入流</span>
+
+fis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>photo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 构建输出流</span>
+
+fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>filemdk <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> newFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span>fis<span class="token punctuation">.</span><span class="token function">available</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+fis<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>fis <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+fis<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>fos <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> String <span class="token function">getPhotoFileName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> photoFileName<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPhotoFileName</span><span class="token punctuation">(</span>String photoFileName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>photoFileName <span class="token operator">=</span> photoFileName<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token keyword">public</span> File <span class="token function">getPhoto</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> photo<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPhoto</span><span class="token punctuation">(</span>File photo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>photo <span class="token operator">=</span> photo<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-项目中的图片上传"><a href="#5-项目中的图片上传" class="headerlink" title="5.项目中的图片上传"></a>5.项目中的图片上传</h2><p><strong>action类中还要加入图片的删除操作</strong></p>
+<pre class="line-numbers language-java"><code class="language-java">String realPath <span class="token operator">=</span> ServletActionContext<span class="token punctuation">.</span><span class="token function">getServletContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRealPath</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+String oldFilePath <span class="token operator">=</span> game<span class="token punctuation">.</span><span class="token function">getCimgurl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>realPath <span class="token operator">+</span> oldFilePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>file <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+file<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -638,16 +630,16 @@ server<span class="token punctuation">.</span>port<span class="token operator">=
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/springboot/">
-                                    <span class="chip bg-color">springboot</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
-                                <a href="/tags/spring/">
-                                    <span class="chip bg-color">spring</span>
+                                <a href="/tags/html/">
+                                    <span class="chip bg-color">html</span>
                                 </a>
                             
-                                <a href="/tags/mysql/">
-                                    <span class="chip bg-color">mysql</span>
+                                <a href="/tags/form/">
+                                    <span class="chip bg-color">form</span>
                                 </a>
                             
                         </div>
@@ -1088,9 +1080,72 @@ server<span class="token punctuation">.</span>port<span class="token operator">=
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/01/13/%E8%A1%A8%E5%8D%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/banner/7.jpg" class="responsive-img" alt="表单上传图片">
+                        
+                        <span class="card-title">表单上传图片</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            表单上传图片1.表单1.在form表单中加入属性：enctype=”multipart/form-data”2.在form表单中给一个input框 type类型为file 的输入框还有给name
+&lt;input type="file" 
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/html/" class="post-category">
+                                    html
+                                </a>
+                            
+                            <a href="/categories/html/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/html/">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                    <a href="/tags/form/">
+                        <span class="chip bg-color">form</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/01/10/Restful%E9%A3%8E%E6%A0%BC%E6%8E%A5%E5%8F%A3/">
                     <div class="card-image">
@@ -1107,9 +1162,9 @@ server<span class="token punctuation">.</span>port<span class="token operator">=
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1139,66 +1194,6 @@ server<span class="token punctuation">.</span>port<span class="token operator">=
                     
                     <a href="/tags/%E6%8E%A5%E5%8F%A3/">
                         <span class="chip bg-color">接口</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/01/08/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88DI%EF%BC%89%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/banner/4.jpg" class="responsive-img" alt="Spring依赖注入（DI）的三种方式">
-                        
-                        <span class="card-title">Spring依赖注入（DI）的三种方式</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Spring依赖注入（DI）的三种方式Spring依赖注入（DI）的三种方式，分别为：1．  接口注入2．  Setter方法注入3．  构造方法注入下面介绍一下这三种依赖注入在Spring中是怎么样实现的。首先我们需要以下几个类：接口 L
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Spring/" class="post-category">
-                                    Spring
-                                </a>
-                            
-                            <a href="/categories/Spring/java/" class="post-category">
-                                    java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/Spring/">
-                        <span class="chip bg-color">Spring</span>
-                    </a>
-                    
-                    <a href="/tags/Spring-DI/">
-                        <span class="chip bg-color">Spring DI</span>
                     </a>
                     
                 </div>
