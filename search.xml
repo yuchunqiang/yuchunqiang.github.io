@@ -108,10 +108,14 @@
           
           <category> mysql </category>
           
+          <category> java </category>
+          
       </categories>
       
       
         <tags>
+            
+            <tag> java </tag>
             
             <tag> springboot </tag>
             
