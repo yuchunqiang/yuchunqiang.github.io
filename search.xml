@@ -4,35 +4,6 @@
   
     
     <entry>
-      <title>设计模式之单例模式</title>
-      <link href="/2020/01/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-      <url>/2020/01/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-      
-        <content type="html"><![CDATA[<h1 id="设计模式之单例模式"><a href="#设计模式之单例模式" class="headerlink" title="设计模式之单例模式"></a>设计模式之单例模式</h1><h2 id="单例模式的关键点"><a href="#单例模式的关键点" class="headerlink" title="单例模式的关键点"></a>单例模式的关键点</h2><h4 id="1-构造方法不对外开放-为private（调用不能用new）"><a href="#1-构造方法不对外开放-为private（调用不能用new）" class="headerlink" title="1. 构造方法不对外开放,为private（调用不能用new）"></a>1. 构造方法不对外开放,为private（调用不能用new）</h4><h4 id="2-确保单例类只有一个对象-尤其是多线程模式下"><a href="#2-确保单例类只有一个对象-尤其是多线程模式下" class="headerlink" title="2. 确保单例类只有一个对象,尤其是多线程模式下"></a>2. 确保单例类只有一个对象,尤其是多线程模式下</h4><h4 id="3-通过静态方法或枚举返回单例对象"><a href="#3-通过静态方法或枚举返回单例对象" class="headerlink" title="3. 通过静态方法或枚举返回单例对象"></a>3. 通过静态方法或枚举返回单例对象</h4><h4 id="4-确保单例类在反序列化是不会重新创建新的对象"><a href="#4-确保单例类在反序列化是不会重新创建新的对象" class="headerlink" title="4. 确保单例类在反序列化是不会重新创建新的对象"></a>4. 确保单例类在反序列化是不会重新创建新的对象</h4><h2 id="单例模式的实现方式"><a href="#单例模式的实现方式" class="headerlink" title="单例模式的实现方式"></a>单例模式的实现方式</h2><h4 id="1-饿汉式"><a href="#1-饿汉式" class="headerlink" title="1.饿汉式"></a>1.饿汉式</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton1</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">/** 饿汉式是在声明的时候就已经初始化Singleton1,确保了对象的唯一性** 声明的时候就初始化对象会浪费不必要的资源* */</span><span class="token keyword">private</span> <span class="token keyword">static</span> Singleton1 instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">private</span> <span class="token function">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">// 通过静态方法或枚举返回单例对象</span><span class="token keyword">public</span> Singleton1 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> instance<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="2-懒汉式"><a href="#2-懒汉式" class="headerlink" title="2. 懒汉式"></a>2. 懒汉式</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton2</span> <span class="token punctuation">{</span><span class="token keyword">private</span> <span class="token keyword">static</span> Singleton2 instance<span class="token punctuation">;</span><span class="token keyword">private</span> <span class="token function">Singleton2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">/** getInstance 添加了synchronized 关键字,,也就是说getInstance 是一个同步方法,* 这就是懒汉式在多线程中保持唯一性的方式** 懒汉式存在的问题是,即是instance已经被创建,每次调用getInstance方法还是会同步,这样就会浪费一些不必要的资源* */</span><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> Singleton2 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> instance<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="双重检查，双重判断锁"><a href="#双重检查，双重判断锁" class="headerlink" title="双重检查，双重判断锁"></a>双重检查，双重判断锁</h4><p><strong>线程安全式中，同步了整个getInstance方法才保证了线程安全，会浪费很多性能。于是我们可以使用双重检查式，它将只在初次创建实例的时候实现同步。（了解锁优化的同学可以理解为减少锁的颗粒度）</strong></p><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** volatile : 另外，为了必免jvm在指令优化时，对创建对象(new)过程出现的指令重排序现象，需要组引用对象用volatile修饰* 通过在getInstance方法上加上同步锁，进行线程控制* */</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>    <span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">static</span> Singleton uniqueSingleton<span class="token punctuation">;</span>    <span class="token keyword">private</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token punctuation">}</span>    <span class="token keyword">public</span> Singleton <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>null <span class="token operator">==</span> uniqueSingleton<span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>Singleton<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//synchronized： </span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>null <span class="token operator">==</span> uniqueSingleton<span class="token punctuation">)</span> <span class="token punctuation">{</span>                    uniqueSingleton <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> uniqueSingleton<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="静态内部类单例模式"><a href="#静态内部类单例模式" class="headerlink" title="静态内部类单例模式"></a>静态内部类单例模式</h4><p><strong>只有第一次调用getInstance方法时，虚拟机才加载 Inner 并初始化instance ，只有一个线程可以获得对象的初始化锁，其他线程无法进行初始化，保证对象的唯一性。</strong></p><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>     <span class="token keyword">private</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token punctuation">}</span>      <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>          <span class="token keyword">return</span> Inner<span class="token punctuation">.</span>instance<span class="token punctuation">;</span>      <span class="token punctuation">}</span>      <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Inner</span> <span class="token punctuation">{</span>          <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Singleton instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token punctuation">}</span>  <span class="token punctuation">}</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> 设计模式 </tag>
-            
-            <tag> 单例模式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>PO,BO,VO,DTO,POJO,DAO解释</title>
       <link href="/2020/01/14/po,vo,bo,dto,dao%E8%A7%A3%E9%87%8A/"/>
       <url>/2020/01/14/po,vo,bo,dto,dao%E8%A7%A3%E9%87%8A/</url>
@@ -107,11 +78,11 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> Restful </tag>
             
             <tag> 接口 </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
@@ -223,11 +194,11 @@
       
         <tags>
             
+            <tag> java </tag>
+            
             <tag> redis </tag>
             
             <tag> 缓存 </tag>
-            
-            <tag> java </tag>
             
         </tags>
       
