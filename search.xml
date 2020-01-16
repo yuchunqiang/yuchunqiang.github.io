@@ -107,11 +107,11 @@
       
         <tags>
             
+            <tag> java </tag>
+            
             <tag> Restful </tag>
             
             <tag> 接口 </tag>
-            
-            <tag> java </tag>
             
         </tags>
       
@@ -223,11 +223,11 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> redis </tag>
             
             <tag> 缓存 </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
