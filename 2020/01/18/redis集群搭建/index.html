@@ -1,0 +1,1561 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="redis集群搭建, 养九 java Gnomeshgh 文案 计算机">
+    <meta name="description" content="redis集群搭建redis集群服务器至少需要六台三主三从
+ruby环境redis集群管理工具redis-trib.rb依赖ruby环境，首先需要安装ruby环境：安装ruby
+yum install ruby
+yum install ru">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>redis集群搭建 | 养九的博客</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">养九的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="http://wenan.cloud/" target="_blank" rel="noopener" class="waves-effect waves-light">
+      
+      <span>Gnomeshgh文案✨</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">养九的博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="http://wenan.cloud/" target="_blank" rel="noopener" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			Gnomeshgh文案✨
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">redis集群搭建</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/redis/">
+                                <span class="chip bg-color">redis</span>
+                            </a>
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+                                <span class="chip bg-color">高并发</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                                <span class="chip bg-color">集群</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-01-18
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    5 分
+                </div>
+                
+
+                
+						<span id="busuanzi_container_site_pv" style='display:none'></span>
+						<i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+						<span id="busuanzi_value_page_pv" ></span>
+
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="redis集群搭建"><a href="#redis集群搭建" class="headerlink" title="redis集群搭建"></a>redis集群搭建</h1><h2 id="redis集群服务器至少需要六台"><a href="#redis集群服务器至少需要六台" class="headerlink" title="redis集群服务器至少需要六台"></a>redis集群服务器至少需要六台</h2><p><strong>三主三从</strong></p>
+<h4 id="ruby环境"><a href="#ruby环境" class="headerlink" title="ruby环境"></a>ruby环境</h4><p>redis集群管理工具redis-trib.rb依赖ruby环境，首先需要安装ruby环境：<br>安装ruby</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum install ruby<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">yum install rubygems<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装ruby和redis的接口程序</p>
+<pre class="line-numbers language-shell"><code class="language-shell">gem install redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行这行命令可能会报错解决方法：</p>
+<p>提示:</p>
+<p>gem install redis ERROR: Error installing redis: redis requires Ruby version &gt;= 2.2.2.</p>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><h5 id="1-更新执行命令："><a href="#1-更新执行命令：" class="headerlink" title="1.更新执行命令："></a>1.更新执行命令：</h5><pre class="line-numbers language-shell"><code class="language-shell">yum -y update nss<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="2-安装curl"><a href="#2-安装curl" class="headerlink" title="2.安装curl"></a>2.安装curl</h5><pre class="line-numbers language-shell"><code class="language-shell">yum install curl -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="3-执行"><a href="#3-执行" class="headerlink" title="3.执行"></a>3.执行</h5><pre class="line-numbers language-shell"><code class="language-shell">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="4-执行"><a href="#4-执行" class="headerlink" title="4.执行"></a>4.执行</h5><pre class="line-numbers language-shell"><code class="language-shell">curl -L get.rvm.io | bash -s stable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h5><pre class="line-numbers language-shell"><code class="language-shell">find / -name rvm -print<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h5><pre class="line-numbers language-shell"><code class="language-shell">source /usr/local/rvm/scripts/rvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h5><pre class="line-numbers language-shell"><code class="language-shell">rvm list known<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h5><pre class="line-numbers language-shell"><code class="language-shell">rvm install 2.4.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h5><pre class="line-numbers language-shell"><code class="language-shell">rvm use 2.4.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="10"><a href="#10" class="headerlink" title="10."></a>10.</h5><pre class="line-numbers language-shell"><code class="language-shell">rvm use 2.4.4 --default<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h5><pre class="line-numbers language-shell"><code class="language-shell">ruby --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h5><pre class="line-numbers language-shell"><code class="language-shell">gem install redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="集群结点规划"><a href="#集群结点规划" class="headerlink" title="集群结点规划"></a>集群结点规划</h4><p>这里在<strong>同一台服务器用不同的端口表示不同的redis服务器</strong>，如下：</p>
+<p>主节点：192.168.106.132:7001 192.168.106.132:7002 192.168.106.132:7003</p>
+<p>从节点：192.168.106.132:7004 192.168.106.132:7005 192.168.106.132:7006</p>
+<p><strong>（需要修改为自己的服务器ip或127.0.0.1）</strong></p>
+<p>在/usr/local下创建redis-cluster目录，<strong>其下创建7001、7002。。7006目录</strong>；</p>
+<p><strong>redis安装目录bin下的文件拷贝到每个700X目录内</strong>，<strong>同时将redis源码目录src下的redis-trib.rb拷贝到redis-cluster目录下</strong>。</p>
+<h5 id="修改每个700X目录下的redis-conf配置文件："><a href="#修改每个700X目录下的redis-conf配置文件：" class="headerlink" title="修改每个700X目录下的redis.conf配置文件："></a>修改每个700X目录下的redis.conf配置文件：</h5><pre class="line-numbers language-shell"><code class="language-shell">port XXXX 
+
+cluster-enabled yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>port后数字为为端口号，大概位于45行</strong></p>
+<p><strong>cluster-enabled 位于632行</strong></p>
+<h5 id="启动每个节点redis服务"><a href="#启动每个节点redis服务" class="headerlink" title="启动每个节点redis服务"></a>启动每个节点redis服务</h5><p>分别进入7001、7002、…7006目录，执行：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">./redis-server ./redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="然后查看进程"><a href="#然后查看进程" class="headerlink" title="然后查看进程"></a>然后查看进程</h5><pre class="line-numbers language-shell"><code class="language-shell">ps -ef | grep redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="执行创建集群命令"><a href="#执行创建集群命令" class="headerlink" title="执行创建集群命令"></a>执行创建集群命令</h5><p>在/usr/local/redis-cluster/下</p>
+<h5 id="执行redis-trib-rb，此脚本是ruby脚本，它依赖ruby环境。"><a href="#执行redis-trib-rb，此脚本是ruby脚本，它依赖ruby环境。" class="headerlink" title="执行redis-trib.rb，此脚本是ruby脚本，它依赖ruby环境。"></a>执行redis-trib.rb，此脚本是ruby脚本，它依赖ruby环境。</h5><pre class="line-numbers language-shell"><code class="language-shell">./redis-trib.rb create --replicas 1 192.168.127.131:7001 192.168.127.131:7002 192.168.127.131:7003 192.168.127.131:7004 192.168.127.131:7005 192.168.127.131:7006<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>(修改为你自己的ip+端口号)</strong></p>
+<h5 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h5><p>redis集群至少需要3个主节点，每个主节点有一个从节点总共6个节点</p>
+<p>replicas指定为1表示每个主节点有一个从节点</p>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>如果执行时报如下错误：</p>
+<p>[ERR] Node XXXXXX is not empty. Either the node already knows other nodes (check with CLUSTER NODES) or contains some key in database 0</p>
+<p>解决方法是删除生成的配置文件<strong>nodes.conf</strong>，如果不行则说明现在创建的结点包括了旧集群的结点信息，需要删除redis的持久化文件后再重启redis，比如：<strong>appendonly.aof、dump.rdb</strong></p>
+<h5 id="创建集群输出如下"><a href="#创建集群输出如下" class="headerlink" title="创建集群输出如下"></a>创建集群输出如下</h5><pre class="line-numbers language-shell"><code class="language-shell">>>> Creating cluster
+
+>>> Performing hash slots allocation on 6 nodes...
+
+Using 3 masters:
+
+192.168.106.132:7001
+
+192.168.106.132:7002
+
+192.168.106.132:7003
+
+Adding replica 192.168.106.132:7004 to 192.168.106.132:7001
+
+Adding replica 192.168.106.132:7005 to 192.168.106.132:7002
+
+Adding replica 192.168.106.132:7006 to 192.168.106.132:7003
+
+M: 6c388e0cd04990b23e2e65b285b5f9c1bc996538 192.168.106.132:7001
+
+slots:0-5460 (5461 slots) master
+
+M: 01e9cd67978b1cad73a40e9a70000a236744cb17 192.168.106.132:7002
+
+slots:5461-10922 (5462 slots) master
+
+M: 72a649017fdd5d4045f9d58df8b231c2d69e6c32 192.168.106.132:7003
+
+slots:10923-16383 (5461 slots) master
+
+S: b90aa487cf48270df43e79af98807bb5ffabbe34 192.168.106.132:7004
+
+replicates 6c388e0cd04990b23e2e65b285b5f9c1bc996538
+
+S: f873f54c61dbb613df58fa4b9ff8bc3dd48e2388 192.168.106.132:7005
+
+replicates 01e9cd67978b1cad73a40e9a70000a236744cb17
+
+S: daa813e169580417f4410fac86a3d4ab9abda804 192.168.106.132:7006
+
+replicates 72a649017fdd5d4045f9d58df8b231c2d69e6c32
+
+Can I set the above configuration? (type 'yes' to accept): yes
+
+>>> Nodes configuration updated
+
+>>> Assign a different config epoch to each node
+
+>>> Sending CLUSTER MEET messages to join the cluster
+
+Waiting for the cluster to join.....
+
+>>> Performing Cluster Check (using node 192.168.106.132:7001)
+
+M: 6c388e0cd04990b23e2e65b285b5f9c1bc996538 192.168.106.132:7001
+
+slots:0-5460 (5461 slots) master
+
+1 additional replica(s)
+
+S: b90aa487cf48270df43e79af98807bb5ffabbe34 192.168.106.132:7004
+
+slots: (0 slots) slave
+
+replicates 6c388e0cd04990b23e2e65b285b5f9c1bc996538
+
+M: 72a649017fdd5d4045f9d58df8b231c2d69e6c32 192.168.106.132:7003
+
+slots:10923-16383 (5461 slots) master
+
+1 additional replica(s)
+
+M: 01e9cd67978b1cad73a40e9a70000a236744cb17 192.168.106.132:7002
+
+slots:5461-10922 (5462 slots) master
+
+1 additional replica(s)
+
+S: daa813e169580417f4410fac86a3d4ab9abda804 192.168.106.132:7006
+
+slots: (0 slots) slave
+
+replicates 72a649017fdd5d4045f9d58df8b231c2d69e6c32
+
+S: f873f54c61dbb613df58fa4b9ff8bc3dd48e2388 192.168.106.132:7005
+
+slots: (0 slots) slave
+
+replicates 01e9cd67978b1cad73a40e9a70000a236744cb17
+
+[OK] All nodes agree about slots configuration.
+
+>>> Check for open slots...
+
+>>> Check slots coverage...
+
+[OK] All 16384 slots covered.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="查询集群信息"><a href="#查询集群信息" class="headerlink" title="查询集群信息"></a>查询集群信息</h5><p><strong>集群创建成功登陆任意redis结点查询集群中的节点情况</strong></p>
+<pre class="line-numbers language-shell"><code class="language-shell">./redis-cli -c -p 7001<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">./redis-cli -c -p 7002<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>以此类推<br>集群创建完毕</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/redis/">
+                                    <span class="chip bg-color">redis</span>
+                                </a>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+                                    <span class="chip bg-color">高并发</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                                    <span class="chip bg-color">集群</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 350px;
+        height: 430px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 320px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+	
+	 .reward-tabs .aifadian-tab .active {
+        color: #fff !important;
+        background-color: #e91e63 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 300px;
+        height: 300px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s4 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s4 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                        <li class="tab col s4 aifadian-tab waves-effect waves-light"><a href="#aifadian">爱发电</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+					<div id="aifadian">
+                        <img src="/medias/reward/aifadian.jpg" class="reward-img" alt="爱发电打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/01/18/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/banner/10.jpg" class="responsive-img" alt="redis集群搭建">
+                        
+                        <span class="card-title">redis集群搭建</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            redis集群搭建redis集群服务器至少需要六台三主三从
+ruby环境redis集群管理工具redis-trib.rb依赖ruby环境，首先需要安装ruby环境：安装ruby
+yum install ruby
+yum install ru
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+                        <span class="chip bg-color">高并发</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%86%E7%BE%A4/">
+                        <span class="chip bg-color">集群</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/banner/9.jpg" class="responsive-img" alt="设计模式之单例模式">
+                        
+                        <span class="card-title">设计模式之单例模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            设计模式之单例模式单例模式的关键点1. 构造方法不对外开放,为private（调用不能用new）2. 确保单例类只有一个对象,尤其是多线程模式下3. 通过静态方法或枚举返回单例对象4. 确保单例类在反序列化是不会重新创建新的对象单例模式的实
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">单例模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 养九的博客<br />'
+            + '文章作者: 养九<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="http://79jsm3.coding-pages.com" target="_blank">养九</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">6.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+				<span id="busuanzi_container_site_pv">
+					<i class="fa fa-heart-o"></i>
+					🌈感谢 <span id="busuanzi_value_site_uv" class="white-color"></span> 
+				</span>
+			
+			
+				<span id="busuanzi_container_site_uv">
+					个小伙伴的 <span id="busuanzi_value_site_pv" class="white-color"></span>次访问🌅
+				</span>
+			
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "1";
+                    var startDate = "4";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站自2020年1月4号起已运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yuchunqiang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab"><svg t="1578291399223" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4002" width="30" height="30"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#191717" p-id="4003"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#191717" p-id="4004"></path></svg></i>
+    </a>
+
+
+
+
+
+    <a href="/medias/weixin.jpg" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: /medias/weixin.jpg" data-position="top" data-delay="50">
+        <i class="fab "><svg t="1578291145939" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2416" width="30" height="30"><path d="M402.944 199.168C256 199.168 133.12 303.616 133.12 426.496c0 75.776 42.496 137.216 104.448 180.224h4.608l-28.16 80.384L312.832 634.88h4.608c28.16 14.336 56.832 18.944 85.504 18.944h18.944c-4.608-18.944-9.216-37.888-9.216-56.832 0-113.664 109.056-208.384 246.272-208.384h9.728c-19.456-103.936-128-189.44-265.728-189.44zM308.224 384c-18.944 0-37.888-14.336-37.888-33.28s18.944-37.888 37.888-37.888 37.888 14.336 37.888 37.888c0 18.944-14.336 33.28-37.888 33.28z m189.44 0c-18.944 0-37.888-14.336-37.888-33.28s18.944-37.888 37.888-37.888 37.888 14.336 37.888 37.888c0 18.944-14.336 33.28-37.888 33.28z" fill="#66BF4C" p-id="2417"></path><path d="M890.88 602.112c0-103.936-103.936-189.44-227.328-189.44-128 0-227.328 85.504-227.328 189.44s103.936 189.44 227.328 189.44c23.552 0 47.616-4.608 71.168-9.728h4.608l80.384 42.496-23.552-71.168c61.44-37.376 94.72-89.6 94.72-151.04z m-307.712-37.888c-18.944 0-33.28-14.336-33.28-33.28s14.336-33.28 33.28-33.28 33.28 14.336 33.28 33.28-14.336 33.28-33.28 33.28z m160.768 0c-18.944 0-33.28-14.336-33.28-33.28s14.336-33.28 33.28-33.28 33.28 14.336 33.28 33.28c-4.608 18.944-18.944 33.28-33.28 33.28z" fill="#66BF4C" p-id="2418"></path></svg></i>
+    </a>
+
+
+
+    <a href="https://afdian.net/@Gnomeshgh" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://afdian.net/@Gnomeshgh" data-position="top" data-delay="50">
+        <i class="fab fa"><svg t="1578373660600" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1828" width="30" height="30"><path d="M824.729388 1023.952125H197.270026a115.877733 115.877733 0 0 1-117.245599-114.705278V216.12995a115.877733 115.877733 0 0 1 117.245599-114.705277h126.625247v-5.86228a96.53221 96.53221 0 0 1 97.704665-95.555163h180.949041a96.53221 96.53221 0 0 1 97.704665 95.555163v5.666871h126.429837a115.877733 115.877733 0 0 1 117.245599 114.705277v693.312306a115.877733 115.877733 0 0 1-119.199692 114.705278zM197.270026 148.322912a68.979494 68.979494 0 0 0-70.347359 67.807038v693.116897A68.979494 68.979494 0 0 0 197.270026 977.053885h627.459362a68.979494 68.979494 0 0 0 69.761131-67.807038V216.12995a68.979494 68.979494 0 0 0-69.761131-67.807038h-126.820656a46.507421 46.507421 0 0 1-46.70283-46.116602v-6.643917a49.63397 49.63397 0 0 0-50.220198-48.656923h-180.753631a49.63397 49.63397 0 0 0-50.220198 48.656923v6.448508a46.507421 46.507421 0 0 1-46.70283 46.116602z" fill="#787AF6" p-id="1829"></path><path d="M657.65441 405.286183H250.421364a61.163121 61.163121 0 0 0-60.967711 61.16312V873.48694a61.163121 61.163121 0 0 0 61.16312 61.16312h407.037637a61.163121 61.163121 0 0 0 61.163121-61.16312V466.449303a61.163121 61.163121 0 0 0-61.163121-61.16312z" fill="#787AF6" opacity=".3" p-id="1830"></path><path d="M714.323116 901.430474H307.09007a84.61224 84.61224 0 0 1-84.416831-84.416831V410.366825a84.61224 84.61224 0 0 1 84.61224-84.61224h407.037637A84.61224 84.61224 0 0 1 798.739947 410.366825v406.646818a84.61224 84.61224 0 0 1-84.416831 84.416831zM307.09007 371.284959a37.714001 37.714001 0 0 0-37.518591 39.081866v406.646818a37.714001 37.714001 0 0 0 37.518591 37.518592h407.233046a37.714001 37.714001 0 0 0 37.714001-37.518592V410.366825a37.714001 37.714001 0 0 0-37.714001-39.081866z m148.315682 449.441461a39.081866 39.081866 0 0 1-21.495026-6.643917 35.759908 35.759908 0 0 1-13.483244-43.380871l39.081866-97.704666h-77.186685a37.323182 37.323182 0 0 1-34.782861-23.058301 36.150726 36.150726 0 0 1 8.207192-39.081866l194.432284-191.696554a37.90941 37.90941 0 0 1 47.679877-4.689824 36.150726 36.150726 0 0 1 14.264881 43.380872l-37.714001 97.704665h85.198468a37.323182 37.323182 0 0 1 34.978271 23.44912 36.150726 36.150726 0 0 1-8.98883 39.081866l-204.202751 191.696554a39.081866 39.081866 0 0 1-25.989441 10.942922z m-48.852332-195.409331h67.0254a37.714001 37.714001 0 0 1 31.265493 16.414384 36.150726 36.150726 0 0 1 3.712777 33.610405l-28.529762 71.715225 154.177962-144.798315h-74.255546A37.714001 37.714001 0 0 1 529.465889 586.235223a36.150726 36.150726 0 0 1-4.103596-33.219586l26.966488-70.738178zM171.085176 335.720461c-11.529151 0-21.104208-6.643917-21.104208-15.046519v-102.980717c0-8.207192 9.575057-15.046518 21.104208-15.046519s21.104208 6.643917 21.104207 15.046519v103.176127c0 8.207192-9.379648 15.046518-21.104207 15.046518zM171.085176 397.665219c-11.529151 0-21.104208-6.839327-21.104208-15.241928v-8.79342c0-8.402601 9.575057-15.241928 21.104208-15.241928s21.104208 6.839327 21.104207 15.241928v8.79342c0 8.402601-9.379648 15.241928-21.104207 15.241928z" fill="#787AF6" p-id="1831"></path><path d="M511.292821 32.05436l4.103596 4.103596z m4.494415 0l-5.86228 4.689824a28.529762 28.529762 0 0 0 5.080642-5.080642z m0 0" fill="#FFFFFF" p-id="1832"></path></svg></i>
+    </a>
+
+
+
+    <a href="/medias/qq.jpg" class="tooltipped" target="_blank" data-tooltip="QQ联系我: /medias/qq.jpg" data-position="top" data-delay="50">
+        <i class="fab"><svg t="1578291503487" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1276" width="30" height="30"><path d="M619.48641 921.31209c-40.947204 0-76.776007 0-102.36801 5.1184C486.407998 921.31209 450.579194 921.31209 409.63199 921.31209c-112.604811 0-214.972821 46.065604-214.972821 76.776007s87.012808 25.592002 199.61762 25.592003c46.065604 0 87.012808-5.1184 122.841611-15.355202 35.828803 5.1184 76.776007 10.236801 117.723212 10.236801 112.604811 0 199.617619 5.1184 199.617619-25.592002s-102.36801-71.657607-214.972821-71.657607z" fill="#EFAB1B" p-id="1277"></path><path d="M906.116838 609.089659c-20.473602-56.302405-46.065604-117.723211-71.657607-174.025617v-40.947204C834.459231 174.025617 721.85442 0 512 0S189.540769 174.025617 189.540769 394.116838v40.947204c-25.592002 56.302405-51.184005 117.723211-71.657607 174.025617-46.065604 122.841612-46.065604 230.328022-30.710403 240.564824 10.236801 5.1184 51.184005-35.828803 92.131209-102.36801C204.89597 900.838488 312.382381 1023.6801 512 1023.6801s307.10403-117.723211 332.696032-281.512028c35.828803 66.539206 76.776007 107.48641 87.012809 102.36801 20.473602-5.1184 15.355201-117.723211-25.592003-235.446423z" fill="#040000" p-id="1278"></path><path d="M430.105592 127.960012c-30.710403 0-56.302405 35.828803-56.302405 81.894408 0 46.065604 25.592002 81.894408 56.302405 81.894408 30.710403 0 56.302405-35.828803 56.302406-81.894408 0-46.065604-25.592002-81.894408-56.302406-81.894408z m174.025617 0c-30.710403 0-56.302405 35.828803-56.302406 76.776008 0 46.065604 25.592002 81.894408 56.302406 81.894408 30.710403 0 56.302405-35.828803 56.302405-76.776008 0-46.065604-25.592002-81.894408-56.302405-81.894408z m117.723211 358.288035c-61.420806 10.236801-133.078413 15.355201-204.73602 15.355202s-143.315214-5.1184-204.736019-15.355202c-40.947204 51.184005-46.065604 127.960012-46.065605 209.854421 0 153.552015 87.012808 281.512027 250.801624 281.512027s250.801624-127.960012 250.801625-281.512027c0-81.894408-5.1184-158.670415-46.065605-209.854421z" fill="#FFFFFF" p-id="1279"></path><path d="M517.1184 317.340831c-107.48641 0-199.617619 20.473602-199.617619 40.947204 0 15.355201 117.723211 66.539206 199.617619 66.539206S716.73602 373.643236 716.73602 358.288035c-5.1184-20.473602-92.131209-40.947204-199.61762-40.947204z" fill="#EFAB1B" p-id="1280"></path><path d="M829.340831 429.945642c-81.894408 25.592002-194.499219 40.947204-317.340831 40.947204-127.960012 0-240.564823-15.355201-317.340831-40.947204-15.355201 35.828803-30.710403 76.776007-46.065604 112.604811 51.184005 15.355201 102.36801 30.710403 163.788816 40.947204v148.433614s40.947204 10.236801 81.894408 10.236801c30.710403 0 56.302405-5.1184 56.302405-5.1184v-138.196814H512c138.196813 0 266.156826-20.473602 368.524836-51.184005-15.355201-40.947204-30.710403-76.776007-51.184005-117.723211z" fill="#DB2920" p-id="1281"></path><path d="M450.579194 184.262418c-15.355201 0-25.592002 15.355201-25.592002 30.710403s10.236801 30.710403 25.592002 30.710403 25.592002-15.355201 25.592003-30.710403c-5.1184-15.355201-15.355201-30.710403-25.592003-30.710403z m179.144017 20.473602s-10.236801-10.236801-35.828803-10.236801c-25.592002 5.1184-35.828803 15.355201-35.828804 20.473602 0 0-5.1184 10.236801 0 15.355201 5.1184 5.1184 10.236801-5.1184 10.236801-5.1184s10.236801-15.355201 25.592003-15.355202 25.592002 5.1184 25.592002 5.118401 5.1184 5.1184 10.236801 0 0-10.236801 0-10.236801z" fill="#040000" p-id="1282"></path></svg></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/7365018314/profile" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/7365018314/profile" data-position="top" data-delay="50">
+        <i class="fab fa"><svg t="1578291594077" class="icon" viewBox="0 0 1194 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2679" width="30" height="30"><path d="M892.201467 469.360603c-15.87122-7.93561-31.742439-7.93561-23.80683-30.71849 15.87122-47.613659 23.892159-86.267759 0-118.010197-38.6541-54.610648-148.643358-54.610648-265.629606 0 0 0-38.6541 15.87122-31.74244-14.84727a125.860479 125.860479 0 0 0 0-140.793078c-62.460929-62.460929-241.908106 0-390.636793 155.640348A536.293632 536.293632 0 0 0 0 656.658061c0 198.304917 249.843716 321.264205 500.626053 321.264204 328.175865 0 538.341532-188.406737 538.341531-336.111474a176.460657 176.460657 0 0 0-146.766117-172.450188z m-391.575414 430.229514c-196.257017 22.78288-367.768585-70.396539-383.639805-205.216577-15.87122-134.820038 132.857468-248.819766 336.026146-263.667036 203.254007-14.932599 367.768585 70.31121 382.701183 203.168677 14.84727 132.857468-141.731698 241.908106-335.087524 265.714936z" fill="#D52B2A" p-id="2680"></path><path d="M1109.278794 99.544119A320.240255 320.240255 0 0 0 805.080417 8.327271a57.511839 57.511839 0 0 0-38.6541 54.610648 56.487889 56.487889 0 0 0 62.460929 36.6062 219.125226 219.125226 0 0 1 211.104288 70.396539c52.306762 58.023814 71.335159 138.830508 50.600179 214.176136-5.631723 23.209526 8.532914 46.675038 31.742439 52.47742a44.627139 44.627139 0 0 0 54.525319-29.69454A297.372046 297.372046 0 0 0 1109.278794 99.544119" fill="#E89214" p-id="2681"></path><path d="M991.353925 211.581277a169.548997 169.548997 0 0 0-147.704738-46.589709 39.678049 39.678049 0 0 0-23.806829 65.447449 40.61667 40.61667 0 0 0 38.654099 12.79937c25.940058-8.532914 54.43999 0.682633 70.396539 22.868209 15.956549 19.625702 21.844259 45.736418 15.87122 70.396539a37.118175 37.118175 0 1 0 70.396539 23.80683 132.857468 132.857468 0 0 0-23.80683-148.728688" fill="#E89214" p-id="2682"></path><path d="M515.473323 523.885922a219.125226 219.125226 0 0 0-241.822777 110.074588 145.742168 145.742168 0 0 0 0 126.799099c18.516423 41.640619 55.037294 72.615096 99.067129 84.305189a213.152187 213.152187 0 0 0 257.779326-110.074588A151.715207 151.715207 0 0 0 515.473323 523.971251z m-70.31121 219.039897a75.345629 75.345629 0 0 1-93.264748 31.74244 55.46394 55.46394 0 0 1-23.7215-80.294719 75.345629 75.345629 0 0 1 86.182429-31.742439c15.956549 4.522444 28.841249 16.212536 34.728959 31.742439a48.637609 48.637609 0 0 1 0 46.589709l-3.92514 1.96257z m63.399549-78.332148a31.742439 31.742439 0 0 1-31.742439 15.871219c-15.87122-7.93561-15.87122-15.87122-7.93561-30.718489a57.511839 57.511839 0 0 1 31.74244-15.87122c6.91166 7.93561 14.84727 15.87122 6.91166 30.71849h1.023949z" fill="#040000" p-id="2683"></path></svg></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/yang-jiu-55-6/" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/yang-jiu-55-6/" data-position="top" data-delay="50">
+        <i class="fab fa"><svg t="1578291557220" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1762" width="30" height="30"><path d="M512 1024C229.236364 1024 0 794.763636 0 512S229.236364 0 512 0s512 229.236364 512 512-229.236364 512-512 512z m-129.861818-756.48s-36.212364 2.094545-48.989091 24.482909c-12.8 22.365091-54.318545 137.378909-54.318546 137.378909s13.847273 6.376727 37.28291-10.658909c23.435636-17.035636 30.882909-46.848 30.882909-46.848l42.589091-2.117818 1.070545 121.390545s-73.495273-1.070545-88.413091 0c-14.894545 1.047273-23.412364 40.448-23.412364 40.448h111.825455s-9.588364 67.095273-38.353455 116.084364c-28.741818 48.989091-83.060364 87.319273-83.060363 87.319273s39.424 15.965091 77.730909-6.4c38.353455-22.341818 66.629818-120.692364 66.629818-120.692364l89.925818 110.056727s8.192-52.386909-1.466182-67.188363c-9.658182-14.778182-62.208-74.286545-62.208-74.286546l-22.946909 20.247273 16.337455-65.117091h97.954909s0-38.353455-19.153455-40.494545c-19.176727-2.094545-78.801455 0-78.801454 0V371.898182h88.389818s-1.070545-39.400727-18.106182-39.400727h-143.755636l22.341818-64.954182z m169.984 61.184v358.562909h36.002909l13.102545 45.009455 63.348364-45.009455h89.064727V328.704h-201.518545z" fill="#0f84fd" p-id="1763"></path><path d="M594.781091 368.64h117.899636v277.876364h-41.890909l-53.364363 40.261818-11.636364-40.261818h-11.008V368.64z" fill="#0f84fd" p-id="1764"></path></svg></i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
