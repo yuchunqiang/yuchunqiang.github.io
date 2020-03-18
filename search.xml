@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>http请求协议</title>
+      <link href="/2020/03/18/http%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2020/03/18/http%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="http请求协议"><a href="#http请求协议" class="headerlink" title="http请求协议"></a>http请求协议</h1><p>http它是一个超文本传输协议，它属于osi七层模型的应用层，有请求和响应构成，是一个标准的客户端服务器模型。http是无状态的也就是说同一个客户端的这次请求和上次请求是没有对应关系。</p><h3 id="http它的工作流程主要分为七部分"><a href="#http它的工作流程主要分为七部分" class="headerlink" title="http它的工作流程主要分为七部分"></a>http它的工作流程主要分为七部分</h3><p><strong>1. 首先是通过tcp建立与服务器的连接；</strong><br><strong>2. 然后发送请求（包括要访问的url地址，请求的方式get/post）；</strong><br><strong>3. 发送头信息（包括要传递的参数）；</strong><br><strong>4. 务器接收到请求后首先会进行响应；</strong><br><strong>5. 然后返回头信息；</strong><br><strong>6. 返回主体内容；</strong><br><strong>7. 客户端接收到请求后断开连接；</strong></p><h3 id="我们还要了解tcp的三次握手与四次挥手"><a href="#我们还要了解tcp的三次握手与四次挥手" class="headerlink" title="我们还要了解tcp的三次握手与四次挥手"></a>我们还要了解tcp的三次握手与四次挥手</h3><h4 id="建立连接时的三次握手："><a href="#建立连接时的三次握手：" class="headerlink" title="建立连接时的三次握手："></a>建立连接时的三次握手：</h4><p><strong>1.第一次握手：一开始A客户和B服务端都是关闭——然后由A客户向B服务端发送请求（报文）</strong></p><p><strong>2.第二次握手：然后B接收到请求后，如果同意建立连接就向A发送确认请求</strong></p><p><strong>3.第三次握手：然后A接收到确认请求后建立连接</strong></p><h4 id="简单点就是"><a href="#简单点就是" class="headerlink" title="-简单点就是"></a>-简单点就是</h4><p><strong>1.首先由客户端告诉服务器我是谁</strong></p><p><strong>2.然后服务器接收到后告诉客户端我是谁</strong></p><p><strong>3.然后客户端接收到后建立连接</strong></p><h4 id="断开连接时的四次挥手："><a href="#断开连接时的四次挥手：" class="headerlink" title="断开连接时的四次挥手："></a>断开连接时的四次挥手：</h4><p><strong>1.第一次挥手：由A停止发送请求，并告诉B服务端</strong></p><p><strong>2.第二次挥手：B服务端接收到请求后，就向A客户端告知</strong></p><p><strong>3.第三次挥手：B服务器发送请求给A，等待A确认断开连接</strong></p><p><strong>4.第四次挥手：A收到B的请求后，发出确认报文后，等待计算器设置的时间后，断开连接</strong></p><h5 id="简单的就是"><a href="#简单的就是" class="headerlink" title="-简单的就是"></a>-简单的就是</h5><p><strong>1.首先由客户端告诉服务器说我没有要发送的请求啦</strong><br><strong>2.然后服务器接收到后告诉客户端说我知道啦</strong><br><strong>3.然后告诉客户端说我没有要返回的数据啦</strong><br><strong>4.然后客户端接收到请求后会断开连接</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> http </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> http </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>事物的特性和隔离级别</title>
       <link href="/2020/03/17/%E4%BA%8B%E7%89%A9%E7%9A%84%E7%89%B9%E6%80%A7%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"/>
       <url>/2020/03/17/%E4%BA%8B%E7%89%A9%E7%9A%84%E7%89%B9%E6%80%A7%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/</url>
