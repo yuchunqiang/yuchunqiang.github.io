@@ -76,9 +76,9 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> redis </tag>
+            
+            <tag> java </tag>
             
             <tag> 高并发 </tag>
             
@@ -194,11 +194,11 @@
       
         <tags>
             
+            <tag> java </tag>
+            
             <tag> Restful </tag>
             
             <tag> 接口 </tag>
-            
-            <tag> java </tag>
             
         </tags>
       
@@ -310,11 +310,11 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> redis </tag>
             
             <tag> 缓存 </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
