@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="表单上传图片, 养九 java Gnomeshgh 文案 计算机">
-    <meta name="description" content="表单上传图片1.表单1.在form表单中加入属性：enctype=”multipart/form-data”2.在form表单中给一个input框 type类型为file 的输入框还有给name
-&amp;lt;input type=&#34;file&#34; ">
+    <meta name="keywords" content="uploadify的介绍与使用, 养九 java Gnomeshgh 文案 计算机">
+    <meta name="description" content="Uploadify是来自国外的一款优秀jQuery插件，主要功能是批量上传文件
+uploadify怎么和项目结合起来使用首先我们需要下载相关插件网址http://www.uploadify.com/
+第二步下载完成将其解压，然后找到相关工具">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>表单上传图片 | 养九的博客</title>
+    <title>uploadify的介绍与使用 | 养九的博客</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -241,12 +242,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">表单上传图片</h1>
+                    <h1 class="description center-align post-title">uploadify的介绍与使用</h1>
                 </div>
             </div>
         </div>
@@ -367,14 +368,6 @@
                                 <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/html/">
-                                <span class="chip bg-color">html</span>
-                            </a>
-                        
-                            <a href="/tags/form/">
-                                <span class="chip bg-color">form</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -396,28 +389,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-13
+                    2020-04-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-16
+                    2020-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    540
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -433,168 +426,318 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="表单上传图片"><a href="#表单上传图片" class="headerlink" title="表单上传图片"></a>表单上传图片</h1><h2 id="1-表单"><a href="#1-表单" class="headerlink" title="1.表单"></a>1.表单</h2><p>1.在form表单中加入属性：<strong>enctype=”multipart/form-data”</strong><br>2.在form表单中给一个input框 type类型为file 的输入框还有给name</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>photo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>在struts.xml中配置<br><strong>设置struts2上传的文件大小，默认情况下的大小是2M ，默认单位是B,目前允许上传的最大为100M</strong></p>
-<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constant</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>struts.multipart.maxSize<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>104857600<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="3-controller-action（控制层）"><a href="#3-controller-action（控制层）" class="headerlink" title="3.controller/action（控制层）"></a>3.controller/action（控制层）</h2><h4 id="1-接收图片的参数定义规则："><a href="#1-接收图片的参数定义规则：" class="headerlink" title="1.接收图片的参数定义规则："></a>1.接收图片的参数定义规则：</h4><p>文件名称的接收:<strong>必须定义的是全局变量，表单中的file框中的name值加上FileName;</strong></p>
-<h4 id="2-接收文件内容的参数"><a href="#2-接收文件内容的参数" class="headerlink" title="2.接收文件内容的参数"></a>2.接收文件内容的参数</h4><p>private File photo；<br><strong>属性名和input中的name值一样。</strong></p>
-<h2 id="4-文件的上传操作"><a href="#4-文件的上传操作" class="headerlink" title="4.文件的上传操作"></a>4.文件的上传操作</h2><h4 id="1-文件重命名"><a href="#1-文件重命名" class="headerlink" title="1.文件重命名"></a>1.文件重命名</h4><h4 id="2-文件的上传"><a href="#2-文件的上传" class="headerlink" title="2.文件的上传"></a>2.文件的上传</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>fh<span class="token punctuation">.</span>action<span class="token punctuation">;</span>
+                <p><strong>Uploadify是来自国外的一款优秀jQuery插件，主要功能是批量上传文件</strong></p>
+<h2 id="uploadify怎么和项目结合起来使用"><a href="#uploadify怎么和项目结合起来使用" class="headerlink" title="uploadify怎么和项目结合起来使用"></a>uploadify怎么和项目结合起来使用</h2><h3 id="首先我们需要下载相关插件"><a href="#首先我们需要下载相关插件" class="headerlink" title="首先我们需要下载相关插件"></a>首先我们需要下载相关插件</h3><p>网址<a href="http://www.uploadify.com/" target="_blank" rel="noopener">http://www.uploadify.com/</a></p>
+<h3 id="第二步下载完成将其解压，然后找到相关工具包，将其放到文件中"><a href="#第二步下载完成将其解压，然后找到相关工具包，将其放到文件中" class="headerlink" title="第二步下载完成将其解压，然后找到相关工具包，将其放到文件中"></a>第二步下载完成将其解压，然后找到相关工具包，将其放到文件中</h3><p>​​​​<img src="https://img-blog.csdnimg.cn/20200420154048678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDE4NTY2Ng==,size_16,color_FFFFFF,t_70" alt=""></p>
+<h4 id="一"><a href="#一" class="headerlink" title="一."></a>一.</h4><p><strong>在这里我们可以看有些文件后面有min，这种文件说明是压缩过后的，但本质上是一样的，所以我们使用压缩后的，看提高网络传输</strong></p>
+<h4 id="二"><a href="#二" class="headerlink" title="二."></a>二.</h4><p><strong>引入css和js文件</strong><br><img src="https://img-blog.csdnimg.cn/2020042015443525.png" alt=""></p>
+<h3 id="测试一-异步上传头像"><a href="#测试一-异步上传头像" class="headerlink" title="测试一 异步上传头像"></a>测试一 异步上传头像</h3><h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">initHeadImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>File<span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#userimage"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uploadify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
 
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileInputStream<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//swf文件位置</span>
 
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileOutputStream<span class="token punctuation">;</span>
+<span class="token string">"swf"</span><span class="token punctuation">:</span><span class="token string">"&lt;%=request.getContextPath()%>/js/uploadify/uploadify.swf"</span><span class="token punctuation">,</span>
 
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//上传图片的路径</span>
 
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>UUID<span class="token punctuation">;</span>
+<span class="token string">"uploader"</span><span class="token punctuation">:</span><span class="token string">"&lt;%=request.getContextPath()%>/userinfo/uploadfile.fh"</span><span class="token punctuation">,</span>
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>struts2<span class="token punctuation">.</span>ServletActionContext<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//按钮上的文字</span>
 
-<span class="token comment" spellcheck="true">/**
-* @ClassName: FileUpload
-* @author yuchunqiang
-**/</span>
+<span class="token string">"buttonText"</span><span class="token punctuation">:</span><span class="token string">"选择文件"</span><span class="token punctuation">,</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FileUpload</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//调整进度条时间</span>
 
-<span class="token keyword">private</span> String photoFileName<span class="token punctuation">;</span>
+<span class="token string">"removeTimeout"</span><span class="token punctuation">:</span><span class="token number">0.1</span><span class="token punctuation">,</span>
 
-<span class="token keyword">private</span> File photo<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//对应后台属性名类似于nama的属性值</span>
 
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">uploadFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token string">"fileObjName"</span><span class="token punctuation">:</span><span class="token string">"uploadFiles"</span><span class="token punctuation">,</span>
 
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>photoFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token string">"onUploadSuccess"</span><span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span>data<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-<span class="token comment" spellcheck="true">// 第一大步就是给文件重命名</span>
+<span class="token comment" spellcheck="true">//回显图片</span>
 
-<span class="token comment" spellcheck="true">// 先获取文件的后缀名</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#userimagediv"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">"&lt;img src='&lt;%=request.getContextPath()%>"</span><span class="token operator">+</span>data<span class="token operator">+</span><span class="token string">"' width='100px' height='100px' />"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-String suffix <span class="token operator">=</span>
+<span class="token comment" spellcheck="true">//删除老照片</span>
 
-photoFileName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>photoFileName<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#headimagepath"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>suffix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取老照片路径</span>
 
-<span class="token comment" spellcheck="true">// 获取一个32位的UUID</span>
+<span class="token keyword">var</span> v_oldpath<span class="token operator">=</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#headimagepath"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-String uuid <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
 
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">"post"</span><span class="token punctuation">,</span>
 
-String newFileName <span class="token operator">=</span> uuid <span class="token operator">+</span> suffix<span class="token punctuation">;</span>
+<span class="token string">"data"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"oldpath"</span><span class="token punctuation">:</span>v_oldpath<span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-<span class="token comment" spellcheck="true">// 第二大步,就是将文件上传到指定文件夹中。</span>
+<span class="token string">"url"</span><span class="token punctuation">:</span><span class="token string">"&lt;%=request.getContextPath()%>/userinfo/deletefile.fh"</span>
 
-<span class="token comment" spellcheck="true">// 1.获取项目的发布路径</span>
-
-String realPath <span class="token operator">=</span>
-
-ServletActionContext<span class="token punctuation">.</span><span class="token function">getServletContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRealPath</span><span class="token punctuation">(</span>
-
-<span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>realPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 读取服务器上的文件目录</span>
-
-File filemdk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>realPath <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> <span class="token string">"photo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>filemdk<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-filemdk<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// 输入流</span>
+<span class="token comment" spellcheck="true">//回显路径</span>
 
-FileInputStream fis <span class="token operator">=</span> null<span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#headimagepath"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 输出流FileOutputStream fos = null;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><h5 id="一-上传头像"><a href="#一-上传头像" class="headerlink" title="一.上传头像"></a>一.上传头像</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">uploadfile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>uploadFiles<span class="token operator">!=</span>null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+String uploadedFileName <span class="token operator">=</span> FileUtil<span class="token punctuation">.</span><span class="token function">copyFile</span><span class="token punctuation">(</span>uploadFiles<span class="token punctuation">,</span> uploadFilesFileName<span class="token punctuation">,</span><span class="token function">getRealPath</span><span class="token punctuation">(</span>Constants<span class="token punctuation">.</span>USER_HEADIMG_PATH<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+String filePath<span class="token operator">=</span>Constants<span class="token punctuation">.</span>USER_HEADIMG_PATH<span class="token operator">+</span>uploadedFileName<span class="token punctuation">;</span>
+
+<span class="token function">outstr</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="二-删除老照片"><a href="#二-删除老照片" class="headerlink" title="二.删除老照片"></a>二.删除老照片</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deletefile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>StringUtils<span class="token punctuation">.</span><span class="token function">isNotBlank</span><span class="token punctuation">(</span>oldpath<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+File file<span class="token operator">=</span>null<span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>oldpath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+
+file<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token function">getRealPath</span><span class="token punctuation">(</span>oldpath<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+file<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">outstr</span><span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="三-返回给前台"><a href="#三-返回给前台" class="headerlink" title="三.返回给前台"></a>三.返回给前台</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">outstr</span><span class="token punctuation">(</span>String content<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+PrintWriter writer<span class="token operator">=</span>null<span class="token punctuation">;</span>
 
 <span class="token keyword">try</span> <span class="token punctuation">{</span>
 
-<span class="token comment" spellcheck="true">// 获取输入流</span>
+writer <span class="token operator">=</span> <span class="token function">getResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-fis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>photo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 构建输出流</span>
-
-fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>filemdk <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> newFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span>fis<span class="token punctuation">.</span><span class="token function">available</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-fis<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
-
-<span class="token keyword">try</span> <span class="token punctuation">{</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>fis <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-fis<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>fos <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
+writer<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
 e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+<span class="token punctuation">}</span><span class="token keyword">finally</span><span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>writer <span class="token operator">!=</span>null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+writer<span class="token operator">=</span>null<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="测试二-异步上传附件"><a href="#测试二-异步上传附件" class="headerlink" title="测试二 异步上传附件"></a>测试二 异步上传附件</h3><h4 id="前端-1"><a href="#前端-1" class="headerlink" title="前端"></a>前端</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token function">initHeadImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">initUserAttach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> hasHeader <span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">initUserAttach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#useratach"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uploadify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true">//swf文件位置</span>
+
+<span class="token string">"swf"</span><span class="token punctuation">:</span><span class="token string">"&lt;%=request.getContextPath()%>/js/uploadify/uploadify.swf"</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">//上传图片的路径</span>
+
+<span class="token string">"uploader"</span><span class="token punctuation">:</span><span class="token string">"&lt;%=request.getContextPath()%>/userinfo/uploadfiles.fh"</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">//调整进度条时间</span>
+
+<span class="token string">"removeTimeout"</span><span class="token punctuation">:</span><span class="token number">0.1</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">//按钮上的文字</span>
+
+<span class="token string">"buttonText"</span><span class="token punctuation">:</span><span class="token string">"选择文件"</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">//对应后台属性名类似于nama的属性值</span>
+
+<span class="token string">"fileObjName"</span><span class="token punctuation">:</span><span class="token string">"uploadFiles"</span><span class="token punctuation">,</span>
+
+<span class="token string">"onUploadSuccess"</span><span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span>data<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true">//回显图片</span>
+
+<span class="token keyword">var</span> v_arr<span class="token operator">=</span>data<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">";"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> v_fileName<span class="token operator">=</span>v_arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> v_filePath<span class="token operator">=</span>v_arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//重点事项</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hasHeader<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#attachTable"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"&lt;tr>&lt;td>附件名&lt;/td>&lt;td>操作&lt;/td>&lt;/tr>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+hasHeader<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> v_name_info<span class="token operator">=</span><span class="token string">"&lt;input type='text' name='user.userAttachNames' value='"</span><span class="token operator">+</span>v_fileName<span class="token operator">+</span><span class="token string">"'/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> v_path_info<span class="token operator">=</span><span class="token string">"&lt;input type='text' name='user.userAttachPaths' value='"</span><span class="token operator">+</span>v_filePath<span class="token operator">+</span><span class="token string">"'/>"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> v_result <span class="token operator">=</span>v_name_info<span class="token operator">+</span>v_path_info<span class="token punctuation">;</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#attachTable"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"&lt;tr flag='attachrow'>&lt;td>"</span><span class="token operator">+</span>v_fileName<span class="token operator">+</span>v_result<span class="token operator">+</span><span class="token string">"&lt;/td>&lt;td>&lt;input type='button' value='删除' onclick='deleteAttachFile(\""</span><span class="token operator">+</span>v_filePath<span class="token operator">+</span><span class="token string">"\",this)'>&lt;/td>&lt;/tr>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">deleteAttachFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+<span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">"post"</span><span class="token punctuation">,</span>
+
+<span class="token string">"data"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"oldpath"</span><span class="token punctuation">:</span>path<span class="token punctuation">,</span><span class="token string">"flag"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token string">"url"</span><span class="token punctuation">:</span><span class="token string">"&lt;%=request.getContextPath()%>/userinfo/deletefile.fh"</span><span class="token punctuation">,</span>
+
+<span class="token string">"success"</span><span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token string">"ok"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true">//删除页面元素</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parents</span><span class="token punctuation">(</span><span class="token string">"tr[flag='attachrow']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//没有内容删除表格</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#attachTable"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">children</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">children</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true">//清楚table内容</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#attachTable"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//重置flag</span>
+
+hasHeader<span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
 <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> String <span class="token function">getPhotoFileName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token keyword">return</span> photoFileName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="后端-附件上传"><a href="#后端-附件上传" class="headerlink" title="后端 附件上传"></a>后端 附件上传</h4><h5 id="控制层"><a href="#控制层" class="headerlink" title="控制层"></a>控制层</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">uploadfiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>uploadFiles <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPhotoFileName</span><span class="token punctuation">(</span>String photoFileName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+String uploadedFileName <span class="token operator">=</span> FileUtil<span class="token punctuation">.</span><span class="token function">copyFile</span><span class="token punctuation">(</span>uploadFiles<span class="token punctuation">,</span> uploadFilesFileName<span class="token punctuation">,</span> Constants<span class="token punctuation">.</span>USER_ATTACH_PATH<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">this</span><span class="token punctuation">.</span>photoFileName <span class="token operator">=</span> photoFileName<span class="token punctuation">;</span>
+String filePath<span class="token operator">=</span>Constants<span class="token punctuation">.</span>USER_ATTACH_PATH<span class="token operator">+</span>uploadedFileName<span class="token punctuation">;</span>
 
-<span class="token punctuation">}</span><span class="token keyword">public</span> File <span class="token function">getPhoto</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-<span class="token keyword">return</span> photo<span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPhoto</span><span class="token punctuation">(</span>File photo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-<span class="token keyword">this</span><span class="token punctuation">.</span>photo <span class="token operator">=</span> photo<span class="token punctuation">;</span>
+<span class="token function">outstr</span><span class="token punctuation">(</span>filePath<span class="token operator">+</span><span class="token string">";"</span><span class="token operator">+</span>uploadFilesFileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span>
 
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-项目中的图片上传"><a href="#5-项目中的图片上传" class="headerlink" title="5.项目中的图片上传"></a>5.项目中的图片上传</h2><p><strong>action类中还要加入图片的删除操作</strong></p>
-<pre class="line-numbers language-java"><code class="language-java">String realPath <span class="token operator">=</span> ServletActionContext<span class="token punctuation">.</span><span class="token function">getServletContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRealPath</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-String oldFilePath <span class="token operator">=</span> game<span class="token punctuation">.</span><span class="token function">getCimgurl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+删出文件
 
-File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>realPath <span class="token operator">+</span> oldFilePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deletefile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-<span class="token keyword">if</span> <span class="token punctuation">(</span>file <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>StringUtils<span class="token punctuation">.</span><span class="token function">isNotBlank</span><span class="token punctuation">(</span>oldpath<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+File file<span class="token operator">=</span>null<span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>oldpath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+
+file<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token function">getRealPath</span><span class="token punctuation">(</span>oldpath<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
 file<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">outstr</span><span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="业务逻辑层"><a href="#业务逻辑层" class="headerlink" title="业务逻辑层"></a>业务逻辑层</h5><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>StringUtils<span class="token punctuation">.</span><span class="token function">isNotBlank</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getUserAttachNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+String <span class="token punctuation">[</span><span class="token punctuation">]</span> userAttrNameArr<span class="token operator">=</span>user<span class="token punctuation">.</span><span class="token function">getUserAttachNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+String <span class="token punctuation">[</span><span class="token punctuation">]</span> userAttachPathArr<span class="token operator">=</span>user<span class="token punctuation">.</span><span class="token function">getUserAttachPaths</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> userAttachPathArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+UserAttach ua<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">UserAttach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//重新获取值</span>
+
+ua<span class="token punctuation">.</span><span class="token function">setAttachName</span><span class="token punctuation">(</span>userAttrNameArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ua<span class="token punctuation">.</span><span class="token function">setAttachPath</span><span class="token punctuation">(</span>userAttachPathArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//关联关系</span>
+
+ua<span class="token punctuation">.</span><span class="token function">setUser</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+user<span class="token punctuation">.</span><span class="token function">getUserAttachs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>ua<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="uploadify在使用过程中的注意事项"><a href="#uploadify在使用过程中的注意事项" class="headerlink" title="uploadify在使用过程中的注意事项"></a>uploadify在使用过程中的注意事项</h2><h4 id="后台向前台传递数据："><a href="#后台向前台传递数据：" class="headerlink" title="后台向前台传递数据："></a>后台向前台传递数据：</h4><p><strong>后台怎么传【response】</strong><br><strong>前台 怎么接【request.getparameter】</strong></p>
+<h4 id="任何第三方的js插件都会提供的信息："><a href="#任何第三方的js插件都会提供的信息：" class="headerlink" title="任何第三方的js插件都会提供的信息："></a>任何第三方的js插件都会提供的信息：</h4><p><strong>属性【配置项】options</strong><br><strong>事件【所有以on开头的都是事件】events</strong><br><strong>方法【一般都是动词】methods</strong></p>
+<h4 id="后台如何获取单个name的参数的信息："><a href="#后台如何获取单个name的参数的信息：" class="headerlink" title="后台如何获取单个name的参数的信息："></a>后台如何获取单个name的参数的信息：</h4><p><strong>无论是获取？传参还是name传参，还是其他传参只要是传参就通过</strong><br><strong>request.getparamer（name的值）；</strong><br><strong>声明私有属性，并生产get，set方法</strong></p>
+<h4 id="后台如何获取多个name值一样的参数的信息"><a href="#后台如何获取多个name值一样的参数的信息" class="headerlink" title="后台如何获取多个name值一样的参数的信息"></a>后台如何获取多个name值一样的参数的信息</h4><p><strong>无论是获取？传参还是name传参，还是其他传参只要是传参就通过</strong><br><strong>request.getparamervalues（name的值）；</strong><br><strong>.声明私有属性，并生产get，set方法，建议声明为string类型</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -628,14 +771,6 @@ file<span class="token punctuation">.</span><span class="token function">delete<
                             
                                 <a href="/tags/java/">
                                     <span class="chip bg-color">java</span>
-                                </a>
-                            
-                                <a href="/tags/html/">
-                                    <span class="chip bg-color">html</span>
-                                </a>
-                            
-                                <a href="/tags/form/">
-                                    <span class="chip bg-color">form</span>
                                 </a>
                             
                         </div>
@@ -1076,30 +1211,31 @@ file<span class="token punctuation">.</span><span class="token function">delete<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/14/po,vo,bo,dto,dao%E8%A7%A3%E9%87%8A/">
+                <a href="/2020/04/20/uploadify%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/8.jpg" class="responsive-img" alt="PO,BO,VO,DTO,POJO,DAO解释">
+                        <img src="/medias/banner/14.jpg" class="responsive-img" alt="uploadify的介绍与使用">
                         
-                        <span class="card-title">PO,BO,VO,DTO,POJO,DAO解释</span>
+                        <span class="card-title">uploadify的介绍与使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PO：persistant object持久对象最形象的理解就是一个PO就是数据库中的一条记录。
-好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。
-BO：businessobject业务对象主要作用是把业务逻辑封装为一个对象。
+                            Uploadify是来自国外的一款优秀jQuery插件，主要功能是批量上传文件
+uploadify怎么和项目结合起来使用首先我们需要下载相关插件网址http://www.uploadify.com/
+第二步下载完成将其解压，然后找到相关工具
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1112,19 +1248,12 @@ BO：businessobject业务对象主要作用是把业务逻辑封装为一个对�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/DAO/">
-                        <span class="chip bg-color">DAO</span>
-                    </a>
-                    
-                    <a href="/tags/PO/">
-                        <span class="chip bg-color">PO</span>
                     </a>
                     
                 </div>
@@ -1138,23 +1267,25 @@ BO：businessobject业务对象主要作用是把业务逻辑封装为一个对�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/10/Restful%E9%A3%8E%E6%A0%BC%E6%8E%A5%E5%8F%A3/">
+                <a href="/2020/04/14/%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E4%B8%BA%E6%98%9F%E6%9C%9F%E5%87%A0/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/6.jpg" class="responsive-img" alt="Restful风格接口">
+                        <img src="/medias/banner/13.jpg" class="responsive-img" alt="判断当前时间为星期几">
                         
-                        <span class="card-title">Restful风格接口</span>
+                        <span class="card-title">判断当前时间为星期几</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Restful风格接口Restful风格的API是一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。在Restfu
+                            判断当前时间为星期几 Calendar cal = Calendar.getInstance();
+        int data=cal.get(Calendar.DAY_OF_WEEK);
+        if(data==Calen
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
                             </span>
                         <span class="publish-author">
                             
@@ -1173,14 +1304,6 @@ BO：businessobject业务对象主要作用是把业务逻辑封装为一个对�
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/Restful/">
-                        <span class="chip bg-color">Restful</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">
-                        <span class="chip bg-color">接口</span>
                     </a>
                     
                 </div>
